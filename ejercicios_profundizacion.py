@@ -15,7 +15,13 @@ __author__ = "Inove Coding School"
 __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
+
+import math
+from os import X_OK
+import random
+from typing import Container 
 import numpy as np
+
 
 
 def ej1():
@@ -41,6 +47,17 @@ def ej1():
 
     Realizar este proceso iterativo hasta cumplir el objetivo
     '''
+    contador = 0
+    lista_1 = [random.randint(1,10) for x in range (3)]
+    while sum(lista_1) > 21:
+        lista_1 = [random.randint(1,10) for x in range(3)]
+        contador += 1
+    print(f'Se desecharon un total de ({contador}) listas')
+    print(f'La lista que cumplió con lo requerido es {lista_1} y su sumatoria: {sum(lista_1)} ')
+    
+
+def new_func():
+    return 
 
 
 def ej2():
@@ -64,6 +81,9 @@ def ej2():
     # Se espera obtener:
     # ['Tamara', 'Juan', 'Alberto'......]
 
+    nombres_filtrados = [ x for x in nombres if x[0] in padron ]
+    print(nombres_filtrados)
+ 
 
 def ej3():
     print("Un poco de Numpy!")
@@ -79,8 +99,8 @@ def ej3():
     # obtenga el array "y_nump" que tenga los resultados
     # NO utilizar comprensión de listas, solo utilice la
     # funcion de numpy "np.sin"
-
-    # y_nump =
+    
+    y_nump = np.sin(x)
 
     # Conjunto de valores "X" en una lista
     x = list(np.arange(0, 2*np.pi, 0.1))
@@ -89,7 +109,8 @@ def ej3():
     # "y_list" que tenga todos los valores obtenidos como resultado
     # de someter cada valor de "X" a la función math.sin
 
-    # y_list =
+    y_list = [ math.sin(x) for x in x]
+    print(y_list)
 
     # Este es un ejemplo práctico de cuando es útil usar numpy,
     # basicamente siempre que deseen utilizar una función matemática
@@ -112,6 +133,11 @@ def ej4():
                 }
 
     lista_compra_id = [556070, 905045, 42135, 5674, 704060, 1264, 42135, 3654]
+
+
+    lista_compra_productos = [(producto.get(id) if (id in producto.keys())else 'Nan') for id in lista_compra_id ]
+  
+    print(lista_compra_productos)
 
     # Crear una nueva lista "lista_compra_productos" que transforme la lista
     # de realizada por "ID" de producto en lista por "nombre" producto
@@ -151,8 +177,8 @@ def ej5():
 
 if __name__ == '__main__':
     print("Ejercicios de práctica")
-    # ej1()
-    # ej2()
-    # ej3()
-    # ej4()
+    #ej1()
+    #ej2()
+    #ej3()
+    ej4()
     # ej5()
